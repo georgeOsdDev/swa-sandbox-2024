@@ -1,43 +1,10 @@
 {
-    "auth":
-    {
-        "identityProviders":
-        {
-            "azureActiveDirectory":
-            {
-              "registration": {
-                "openIdIssuer": "https://login.microsoftonline.com/16b3c013-d300-468d-ac64-7eda0820b6d3/v2.0",
-                "clientIdSettingName": "AZURE_CLIENT_ID",
-                "clientSecretSettingName": "AZURE_CLIENT_SECRET"
-              }
-            }
-        }
-    },
-    "navigationFallback":
-    {
+    "navigationFallback":{
         "rewrite": "/index.html",
         "exclude": ["/.auth/*", "/login", "/callback"]
     },
-  "routes": [
-    {
-      "route": "/*",
-      "allowedRoles": [ "authenticated" ],
-      "headers": {
-          "Cache-Control": "no-store"
-      }
-    }
-  ],
-  "responseOverrides":
-  {
-      "401":
-      {
-          "statusCode": 302,
-          "redirect": "/.auth/login/aad?post_login_redirect_uri=.referrer"
-      }
-  },
-  "globalHeaders": {
+    "globalHeaders": {
       "Access-Control-Allow-Origin": "https://je-toshida-applinuxsandbox-node.azurewebsites.net",
       "Access-Control-Allow-Methods": "POST, GET, OPTIONS"
-  }
-
+    }
 }
