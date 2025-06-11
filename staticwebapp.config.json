@@ -6,5 +6,15 @@
     "globalHeaders": {
       "Access-Control-Allow-Origin": "https://je-toshida-applinuxsandbox-node.azurewebsites.net",
       "Access-Control-Allow-Methods": "POST, GET, OPTIONS"
+    },
+  "responseOverrides": {
+    "403": {
+      "rewrite": "/robots.txt"
+    },
+  }
+    'networking': {
+        'allowedIpRanges': [
+            ' 1.1.1.1/27',
+        ]
     }
 }
